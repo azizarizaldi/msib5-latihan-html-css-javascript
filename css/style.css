@@ -42,6 +42,7 @@ body {
     justify-content: center;
     width: 100%;
     background-color: #0a4275;
+    box-shadow: 0 -4px 6px rgba(0, 19, 71, 0.219); /* Menambahkan shadow ke bawah */
 }
 
 .footer-logos {
