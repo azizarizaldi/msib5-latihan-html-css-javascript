@@ -96,6 +96,40 @@
 
     <script src="js/bootstrap.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchInitialData();            
+        });
+
+        function fetchInitialData() {
+            // Mengambil data dari local storage (jika ada)
+            const savedData = localStorage.getItem("perhitunganData");
+
+            if (savedData) {
+                const parsedData = JSON.parse(savedData);
+                displayData(parsedData);
+            }
+        }
+
+        function displayData(data) {
+            const bodyScore = document.getElementById("body-score");
+
+            data.forEach((item, index) => {
+                const newRow = bodyScore.insertRow();
+                const numberCell = newRow.insertCell(0);
+                numberCell.innerText = index + 1;
+                numberCell.classList.add("text-center");
+                newRow.insertCell(1).innerText = item.fullname;
+                newRow.insertCell(2).innerText = item.subject;
+                const gradeCell = newRow.insertCell(3);
+                gradeCell.innerText = item.grade;
+                gradeCell.classList.add("text-center");
+                newRow.insertCell(4).innerText = item.average_score;
+            });
+
+            document.getElementById("empty-state").classList.add("d-none");
+            document.getElementById("table-score").classList.remove("d-none");
+        }
+
         document.getElementById("form-perhitungan").addEventListener("submit", function(event) {
             event.preventDefault(); // --> Untuk Mencegah aksi default submit form
         
@@ -126,15 +160,17 @@
             const numberCell = newRow.insertCell(0);
             numberCell.innerText = number;
             numberCell.classList.add("text-center");
-
             newRow.insertCell(1).innerText = fullname;
             newRow.insertCell(2).innerText = subject;
-
             const gradeCell = newRow.insertCell(3);
             gradeCell.innerText = grade;
             gradeCell.classList.add("text-center");
-
             newRow.insertCell(4).innerText = average_score;
+
+            // Save data ke local storage
+            const storageData = { fullname, subject, grade, average_score };
+            saveDataToLocalStorage(storageData);
+
             alert("Data berhasil disimpan!");
             clearForm();
         });
@@ -152,7 +188,21 @@
                 bodyScore.innerHTML = ""; // Menghapus semua baris dari tbody
                 document.getElementById("empty-state").classList.remove("d-none");
                 document.getElementById("table-score").classList.add("d-none");
+                localStorage.removeItem("perhitunganData"); // Menghapus local storage
             }            
+        }
+
+        function saveDataToLocalStorage(data) {
+            let savedData = localStorage.getItem("perhitunganData");
+            
+            if (!savedData) {
+                savedData = [];
+            } else {
+                savedData = JSON.parse(savedData);
+            }
+            
+            savedData.push(data);
+            localStorage.setItem("perhitunganData", JSON.stringify(savedData));
         }
     </script>
 </body>
