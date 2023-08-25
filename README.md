@@ -1,12 +1,13 @@
 # msib5-latihan-html-css-javascript
-Repo ini digunakan untuk latihan HTML, CSS dan Javascript (MSIB 5) gits.id
 
-## Screenshoot Awal tampilan website
-<img src="images/tampilan-satu.png">
+Repository ini digunakan untuk latihan HTML, CSS, dan Javascript dalam kelas MSIB 5 di GITS.ID.
 
-<br><br>
-Setelah berhasil simpan data **(menambahkan perhitungan nilai)**, nanti data yang disimpan
-akan muncul disamping kanan. **(Menampilkan daftar perhitungan nilai)**
+Demo Aplikasi bisa diakses melalui link berikut: [Demo Aplikasi](https://msib5-latihan-html-css-javascript.vercel.app/){:target="_blank"}
 
-## Screenshoot tampilan website setelah berhasil data ditambahkan
-<img src="images/tampilan-kedua.png">
+## Screenshot Awal Tampilan Website
+![Tampilan Awal](images/tampilan-satu.png)
+
+Setelah berhasil menyimpan data _(dengan menambahkan perhitungan nilai)_, data yang disimpan akan muncul di sebelah kanan. _(Menampilkan daftar perhitungan nilai)_
+
+## Screenshot Tampilan Website Setelah Data Ditambahkan
+![Tampilan Setelah Data Ditambahkan](images/tampilan-kedua.png)
